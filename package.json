@@ -1,0 +1,30 @@
+{
+  "name": "force-case-sensitivity-webpack-plugin",
+  "version": "0.1.0",
+  "description": "A Webpack plugin that forces case sensitivity in imports",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcousineau/force-case-sensitivity-webpack-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "plugin",
+    "case sensitive",
+    "import"
+  ],
+  "author": "Daniel Cousineau <dcousineau@gmail.com>",
+  "contributors": [
+    {
+      "name": "Alexandre Kirszenberg"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dcousineau/force-case-sensitivity-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/dcousineau/force-case-sensitivity-webpack-plugin#readme",
+  "dependencies": {
+    "lodash": ">=2.0.0"
+  }
+}
