@@ -18,19 +18,30 @@ ForceCaseSensitivityPlugin.prototype.apply = function(compiler) {
     nmf.plugin('after-resolve', function(data, done) {
       var parentDir = path.dirname(data.resource);
       var resourceName = path.basename(data.resource);
-      fs.readdir(parentDir, function(err, files) {
-        if (err) {
-          done(err);
-        }
-        if (files.indexOf(resourceName) === -1) {
-          var realName = _.find(files, function(filename) {
-            return filename.toLowerCase() === resourceName.toLowerCase()
+      
+      //Ensure the file exists, it's possible we have a webpack-hot-loader file with get params that other webpack plugins understand
+      //e.g. .../node_modules/webpack-dev-server/client/index.js?http://localhost:3000
+      //We'll let webpack figure out if a file doesn't exist
+      fs.exists(parentDir + "/" + resourceName, function (exists) {
+        if (exists) {
+          fs.readdir(parentDir, function(err, files) {
+            if (err) {
+              done(err);
+            }
+            if (files.indexOf(resourceName) === -1) {
+              var realName = _.find(files, function(filename) {
+                return filename.toLowerCase() === resourceName.toLowerCase()
+              });
+              done(new Error('ForceCaseSensitivityPlugin: `' + resourceName + '` does not match the corresponding file on disk `' + realName + '`'));
+              return;
+            }
+            done(null, data);
           });
-          done(new Error('ForceCaseSensitivityPlugin: `' + resourceName + '` does not match the corresponding file on disk `' + realName + '`'));
-          return;
+        } else {
+          done(null, data);
         }
-        done(null, data);
       });
+
     });
   });
 };
