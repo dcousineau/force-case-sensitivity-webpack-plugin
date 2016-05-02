@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/dcousineau/force-case-sensitivity-webpack-plugin#readme",
   "dependencies": {
-    "lodash": ">=2.0.0"
+    "glob": "^7.0.3"
   }
 }
