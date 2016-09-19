@@ -1,6 +1,6 @@
 {
   "name": "force-case-sensitivity-webpack-plugin",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A Webpack plugin that forces case sensitivity in imports",
   "main": "index.js",
   "repository": {
