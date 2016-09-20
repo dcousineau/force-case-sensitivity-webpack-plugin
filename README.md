@@ -1,3 +1,7 @@
+# Abandoning Project
+
+I clearly never really paid attention to this and in merging PR's I kept hitting performance issues. [Urthen/case-sensitive-paths-webpack-plugin](https://github.com/Urthen/case-sensitive-paths-webpack-plugin) is siginficantly more well maintained and active. Please use this instead.
+
 # force-case-sensitivity-webpack-plugin
 
 This is a plugin for Webpack that forces import statements to match case with
